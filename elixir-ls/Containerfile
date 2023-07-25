@@ -1,0 +1,11 @@
+FROM docker.io/library/elixir:1.15.4-otp-25
+
+RUN cd /opt && \
+    curl -fL https://github.com/elixir-lsp/elixir-ls/releases/download/v0.15.1/elixir-ls-v0.15.1.zip -o elixir-ls.zip && \
+    unzip elixir-ls.zip -d elixir-ls && \
+    rm elixir-ls.zip && \
+    chmod +x elixir-ls/language_server.sh && \
+    ln -s /opt/elixir-ls/language_server.sh /usr/bin/elixir-ls && \
+    MIX_ENV=prod elixir /opt/elixir-ls/quiet_install.exs
+
+CMD ["/usr/bin/elixir-ls"]
