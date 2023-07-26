@@ -1,15 +1,19 @@
-FROM docker.io/library/elixir:1.15.4-otp-25
+# see https://hub.docker.com/r/hexpm/elixir
+ARG elixir_image_tag=1.15.4-erlang-26.0.2-debian-bookworm-20230612
 
-RUN set -xe && \
-    DOWNLOAD_URL="https://github.com/elixir-lsp/elixir-ls/releases/download/v0.15.1/elixir-ls-v0.15.1.zip" && \
-    SHA256="5a6320e03b552e091cf5446ee05fa4ded51e0c89f321c629b49b02d674ecab3a" && \
-    cd /opt && \
-    curl -fL $DOWNLOAD_URL -o elixir-ls.zip && \
-    echo "$SHA256 elixir-ls.zip" | sha256sum -c - && \
+FROM docker.io/hexpm/elixir:$elixir_image_tag
+
+RUN apt update && \
+    apt install -y curl unzip git && \
+    rm -rf /var/cache/apt/lists
+
+ARG elixirls_version=0.15.1
+
+RUN cd /opt && \
+    curl -fL -o elixir-ls.zip "https://github.com/elixir-lsp/elixir-ls/releases/download/v$elixirls_version/elixir-ls-v$elixirls_version.zip" && \
     unzip elixir-ls.zip -d elixir-ls && \
     rm elixir-ls.zip && \
-    chmod +x elixir-ls/language_server.sh && \
-    ln -s /opt/elixir-ls/language_server.sh /usr/bin/elixir-ls && \
-    MIX_ENV=prod elixir /opt/elixir-ls/quiet_install.exs
+    MIX_ENV=prod elixir /opt/elixir-ls/quiet_install.exs && \
+    ln -s /opt/elixir-ls/language_server.sh /usr/bin/elixir-ls
 
 CMD ["/usr/bin/elixir-ls"]
