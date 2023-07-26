@@ -2,7 +2,7 @@
 
 ## elixir-ls
 
-Image for `elixir-ls`, the most-used elixir LSP.
+Image for [`elixir-ls`, the most-used elixir LSP](https://github.com/elixir-lsp/elixir-ls).
 
 To use with Helix, add to `languages.toml` configuration:
 
