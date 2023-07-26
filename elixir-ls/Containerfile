@@ -14,6 +14,6 @@ RUN cd /opt && \
     unzip elixir-ls.zip -d elixir-ls && \
     rm elixir-ls.zip && \
     MIX_ENV=prod elixir /opt/elixir-ls/quiet_install.exs && \
-    ln -s /opt/elixir-ls/language_server.sh /usr/bin/elixir-ls
+    ln -s /opt/elixir-ls/language_server.sh /usr/local/bin/elixir-ls
 
-CMD ["/usr/bin/elixir-ls"]
+CMD ["/usr/local/bin/elixir-ls"]
