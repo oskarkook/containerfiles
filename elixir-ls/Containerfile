@@ -16,4 +16,5 @@ RUN cd /opt && \
     MIX_ENV=prod elixir /opt/elixir-ls/quiet_install.exs && \
     ln -s /opt/elixir-ls/language_server.sh /usr/local/bin/elixir-ls
 
+ENV SHELL=/usr/bin/bash
 CMD ["/usr/local/bin/elixir-ls"]
