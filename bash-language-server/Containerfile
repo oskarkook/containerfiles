@@ -1,0 +1,5 @@
+FROM docker.io/library/node:20-bookworm
+
+RUN apt update -y && apt install -y shellcheck
+RUN npm install -g bash-language-server
+CMD ["/usr/bin/env", "bash-language-server", "start"]
