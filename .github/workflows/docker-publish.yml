@@ -17,7 +17,7 @@ jobs:
   build:
     strategy:
       matrix:
-        context: [elixir-ls, marksman, bash-language-server]
+        context: [elixir-ls, marksman, bash-language-server, dockerfile-language-server]
     runs-on: ubuntu-latest
     permissions:
       contents: read
