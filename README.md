@@ -10,13 +10,13 @@ Available images:
 * `ghcr.io/oskarkook/containerfiles/dockerfile-language-server:latest` - [`dockerfile-language-server-nodejs`](https://github.com/rcjsuen/dockerfile-language-server-nodejs)
 * `ghcr.io/oskarkook/containerfiles/typescript-language-server:latest` - [`typescript-language-server`](https://github.com/typescript-language-server/typescript-language-server)
 
-Some language servers monitor the parent process that started the server, as documented in the [language server protocol specification](https://github.com/microsoft/language-server-protocol/blob/gh-pages/_specifications/specification-3-16.md#server-lifetime). Most commonly, this can be encountered with language servers that are built on top of [vscode-languageserver-node](https://github.com/microsoft/vscode-languageserver-node/). To achieve this, the client provides the PID that started the server process during the initialization sequence.
+Some language servers monitor the parent process that started the server, as documented in the [language server protocol specification](https://github.com/microsoft/language-server-protocol/blob/gh-pages/_specifications/specification-3-16.md#server-lifetime). Most commonly, this can be encountered with language servers that are built on top of [vscode-languageserver-node](https://github.com/microsoft/vscode-languageserver-node/).
 
 When starting containers in rootless mode, podman creates a new PID namespace and therefore the server will be unable to see the process that spawned it. This will cause the server to close almost immediately after starting up. To make these language servers work with containers, the best option is to not allow the editor to send the PID to the server. In some editors this is configurable (e.g. using [`before_init` in neovim](https://neovim.io/doc/user/lsp.html#lsp-core)).
 
 In Helix, this is not configurable. To make Helix work with all LSPs, [I have a fork where the process ID is always set to null](https://github.com/oskarkook/helix/tree/lsp-process-id-null). If you need this, you are welcome to build and use Helix from the fork.
 
-To use these images with helix, one option is to directly invoke podman:
+To use these images with helix, one option is to directly invoke podman in `languages.toml`:
 
 ```toml
 [[language]]
