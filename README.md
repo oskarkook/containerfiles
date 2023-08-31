@@ -8,6 +8,7 @@ Available images:
 * `ghcr.io/oskarkook/containerfiles/marksman:latest` - [`marksman`](https://github.com/artempyanykh/marksman/)
 * `ghcr.io/oskarkook/containerfiles/bash-language-server:latest` - [`bash-language-server`](https://github.com/bash-lsp/bash-language-server)
 * `ghcr.io/oskarkook/containerfiles/dockerfile-language-server:latest` - [`dockerfile-language-server-nodejs`](https://github.com/rcjsuen/dockerfile-language-server-nodejs)
+* `ghcr.io/oskarkook/containerfiles/typescript-language-server:latest` - [`typescript-language-server`](https://github.com/typescript-language-server/typescript-language-server)
 
 Some language servers monitor the parent process that started the server, as documented in the [language server protocol specification](https://github.com/microsoft/language-server-protocol/blob/gh-pages/_specifications/specification-3-16.md#server-lifetime). Most commonly, this can be encountered with language servers that are built on top of [vscode-languageserver-node](https://github.com/microsoft/vscode-languageserver-node/). To achieve this, the client provides the PID that started the server process during the initialization sequence.
 
