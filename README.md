@@ -9,6 +9,7 @@ Available images:
 * `ghcr.io/oskarkook/containerfiles/bash-language-server:latest` - [`bash-language-server`](https://github.com/bash-lsp/bash-language-server)
 * `ghcr.io/oskarkook/containerfiles/dockerfile-language-server:latest` - [`dockerfile-language-server-nodejs`](https://github.com/rcjsuen/dockerfile-language-server-nodejs)
 * `ghcr.io/oskarkook/containerfiles/typescript-language-server:latest` - [`typescript-language-server`](https://github.com/typescript-language-server/typescript-language-server)
+* `ghcr.io/oskarkook/containerfiles/vscode-css-language-server:latest` - [`vscode-langservers-extracted`](https://github.com/hrsh7th/vscode-langservers-extracted)
 
 Some language servers monitor the parent process that started the server, as documented in the [language server protocol specification](https://github.com/microsoft/language-server-protocol/blob/gh-pages/_specifications/specification-3-16.md#server-lifetime). Most commonly, this can be encountered with language servers that are built on top of [vscode-languageserver-node](https://github.com/microsoft/vscode-languageserver-node/).
 

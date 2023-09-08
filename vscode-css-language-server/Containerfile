@@ -1,0 +1,4 @@
+FROM docker.io/library/node:20-bookworm
+
+RUN npm install -g vscode-langservers-extracted
+CMD ["/usr/bin/env", "vscode-css-language-server", "--stdio"]
