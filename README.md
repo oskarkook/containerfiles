@@ -27,3 +27,7 @@ language-server = { command = "podman", args = ["run", "--network=none", "--rm",
 
 Another option is to wrap the call to podman in a script and have Helix call the script. This is left as an exercise to the reader.
 
+## Other
+
+* `ghcr.io/oskarkook/containerfiles/yt-dlp:latest` - [`yt-dlp`](https://github.com/yt-dlp/yt-dlp)
+

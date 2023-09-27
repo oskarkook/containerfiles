@@ -1,0 +1,9 @@
+FROM docker.io/library/fedora:38
+
+RUN cd /opt && \
+  curl -L -o yt-dlp https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp && \
+  chmod +x yt-dlp && \
+  ln -s /opt/yt-dlp /usr/local/bin/yt-dlp
+
+WORKDIR /yt-dlp
+ENTRYPOINT ["/usr/local/bin/yt-dlp"]
