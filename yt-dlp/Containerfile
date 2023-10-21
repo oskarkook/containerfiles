@@ -1,7 +1,7 @@
 FROM docker.io/library/fedora:38
 
 RUN cd /opt && \
-  curl -L -o yt-dlp https://github.com/yt-dlp/yt-dlp/releases/download/2023.09.24/yt-dlp && \
+  curl -L -o yt-dlp https://github.com/yt-dlp/yt-dlp/releases/download/2023.10.13/yt-dlp && \
   chmod +x yt-dlp && \
   ln -s /opt/yt-dlp /usr/local/bin/yt-dlp
 
