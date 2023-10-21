@@ -5,7 +5,7 @@ RUN cd /opt && \
   chmod +x yt-dlp && \
   ln -s /opt/yt-dlp /usr/local/bin/yt-dlp
 
-RUN dnf install -y ffmpeg
+RUN dnf update -y && dnf install -y ffmpeg-free
 
 WORKDIR /yt-dlp
 ENTRYPOINT ["/usr/local/bin/yt-dlp"]
