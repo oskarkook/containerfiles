@@ -1,20 +1,20 @@
 # see https://hub.docker.com/r/hexpm/elixir
-ARG elixir_image_tag=1.15.4-erlang-26.0.2-debian-bookworm-20230612
+ARG elixir_image_tag=1.16.0-erlang-26.2.1-debian-bullseye-20231009
 
 FROM docker.io/hexpm/elixir:$elixir_image_tag
 
 RUN apt update && \
-    apt install -y curl unzip git && \
-    rm -rf /var/cache/apt/lists
+  apt install -y curl unzip git && \
+  rm -rf /var/cache/apt/lists
 
-ARG elixirls_version=0.16.0
+ARG elixirls_version=0.18.1
 
 RUN cd /opt && \
-    curl -fL -o elixir-ls.zip "https://github.com/elixir-lsp/elixir-ls/releases/download/v$elixirls_version/elixir-ls-v$elixirls_version.zip" && \
-    unzip elixir-ls.zip -d elixir-ls && \
-    rm elixir-ls.zip && \
-    MIX_ENV=prod elixir /opt/elixir-ls/quiet_install.exs && \
-    ln -s /opt/elixir-ls/language_server.sh /usr/local/bin/elixir-ls
+  curl -fL -o elixir-ls.zip "https://github.com/elixir-lsp/elixir-ls/releases/download/v$elixirls_version/elixir-ls-v$elixirls_version.zip" && \
+  unzip elixir-ls.zip -d elixir-ls && \
+  rm elixir-ls.zip && \
+  MIX_ENV=prod elixir /opt/elixir-ls/quiet_install.exs && \
+  ln -s /opt/elixir-ls/language_server.sh /usr/local/bin/elixir-ls
 
 ENV SHELL=/usr/bin/bash
 CMD ["/usr/local/bin/elixir-ls"]
