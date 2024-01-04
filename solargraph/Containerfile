@@ -1,0 +1,4 @@
+FROM docker.io/library/ruby:3.2.2-bookworm
+
+RUN gem install solargraph
+CMD ["/usr/local/bundle/bin/solargraph", "stdio"]
