@@ -15,7 +15,7 @@ jobs:
   build:
     strategy:
       matrix:
-        context: [elixir-ls, marksman, bash-language-server, dockerfile-language-server, typescript-language-server, vscode-css-language-server, yt-dlp]
+        context: [elixir-ls, marksman, bash-language-server, dockerfile-language-server, typescript-language-server, vscode-css-language-server, ruby-lsp, solargraph, yt-dlp]
     runs-on: ubuntu-latest
     permissions:
       contents: read
