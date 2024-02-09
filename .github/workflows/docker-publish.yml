@@ -14,8 +14,10 @@ env:
 jobs:
   build:
     strategy:
+      fail-fast: false
       matrix:
         context: [elixir-ls, marksman, bash-language-server, dockerfile-language-server, typescript-language-server, vscode-css-language-server, ruby-lsp, solargraph, yt-dlp]
+        platform: [linux/amd64, linux/arm64]
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -62,4 +64,4 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          platforms: linux/amd64,linux/arm64
+          platforms: ${{ matrix.platform }}
