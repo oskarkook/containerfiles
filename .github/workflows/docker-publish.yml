@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         context: [elixir-ls, marksman, bash-language-server, dockerfile-language-server, typescript-language-server, vscode-css-language-server, ruby-lsp, solargraph, yt-dlp]
-    runs-on: ubuntu-latest
+    runs-on: macos-14
     permissions:
       contents: read
       packages: write
@@ -62,4 +62,4 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          platforms: linux/amd64
+          platforms: linux/arm64
