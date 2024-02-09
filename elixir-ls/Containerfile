@@ -13,7 +13,7 @@ RUN cd /opt && \
   curl -fL -o elixir-ls.zip "https://github.com/elixir-lsp/elixir-ls/releases/download/v$elixirls_version/elixir-ls-v$elixirls_version.zip" && \
   unzip elixir-ls.zip -d elixir-ls && \
   rm elixir-ls.zip && \
-  sed -i -e 's/ElixirLS.Mix/ElixirLS.Mixer/g' /opt/elixir-ls/installer.exs && \
+  sed -i -e 's/compilers: \[\]/compilers: \[:erlang, :elixir, :app\]/g' /opt/elixir-ls/installer.exs && \
   MIX_ENV=prod elixir /opt/elixir-ls/quiet_install.exs && \
   ln -s /opt/elixir-ls/language_server.sh /usr/local/bin/elixir-ls
 
