@@ -1,7 +1,7 @@
 # see https://hub.docker.com/r/hexpm/elixir
 ARG elixir_image_tag=1.16.1-erlang-26.2.2-debian-bookworm-20240130
 
-FROM --platform=$BUILDPLATFORM docker.io/hexpm/elixir:$elixir_image_tag
+FROM --platform=$TARGETPLATFORM docker.io/hexpm/elixir:$elixir_image_tag
 
 RUN apt update && \
   apt install -y curl unzip git && \

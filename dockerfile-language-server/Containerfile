@@ -1,4 +1,4 @@
-FROM --platform=$BUILDPLATFORM docker.io/library/node:20-bookworm
+FROM --platform=$TARGETPLATFORM docker.io/library/node:20-bookworm
 
 RUN npm install -g dockerfile-language-server-nodejs@0.10.2
 CMD ["/usr/bin/env", "docker-langserver", "--stdio"]

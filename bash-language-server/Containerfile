@@ -1,4 +1,4 @@
-FROM --platform=$BUILDPLATFORM docker.io/library/node:20-bookworm
+FROM --platform=$TARGETPLATFORM docker.io/library/node:20-bookworm
 
 RUN apt update -y && apt install -y shellcheck
 RUN npm install -g bash-language-server@5.0.0
