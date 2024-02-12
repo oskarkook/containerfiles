@@ -1,4 +1,4 @@
-FROM docker.io/library/ruby:3.2.2-bookworm
+FROM --platform=$BUILDPLATFORM docker.io/library/ruby:3.2.2-bookworm
 
 RUN gem install ruby-lsp
 CMD ["/usr/local/bundle/bin/ruby-lsp", "stdio"]

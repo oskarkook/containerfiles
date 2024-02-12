@@ -1,12 +1,12 @@
 ARG base_image=docker.io/library/fedora:38
 
-FROM $base_image AS build
+FROM --platform=$BUILDPLATFORM $base_image AS build
 RUN dnf update -y && dnf install -y git dotnet-sdk-7.0 make langpacks-en
 RUN git clone https://github.com/artempyanykh/marksman.git --branch 2023-07-25 && \
-    cd marksman && \
-    make install && \
-    cd .. && \
-    rm -rf marksman
+  cd marksman && \
+  make install && \
+  cd .. && \
+  rm -rf marksman
 
 FROM $base_image AS final
 RUN dnf update -y && dnf install -y libicu
